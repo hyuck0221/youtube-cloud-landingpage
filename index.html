@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141416">
+  <meta name="description" content="유튜브 타임스탬프 댓글을 그 장면 위에 띄우는 Chrome 확장 프로그램. 랜덤 위치와 고정 채팅창을 미리 체험해 보세요.">
+  <title>YouTube Cloud — 그 장면에, 댓글이 뜬다.</title>
+  <link rel="icon" href="assets/cloud.png">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="demo.js"></script>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="YouTube Cloud, 페이지 처음">
+        <img src="assets/cloud.png" width="34" height="34" alt="">
+        <span>YouTube Cloud</span>
+      </a>
+      <a class="button button-outline" href="#install">설치 방법</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell hero" aria-labelledby="headline">
+      <div class="intro">
+        <h1 id="headline">그 장면에,<br>댓글이 뜬다<span>.</span></h1>
+        <div class="intro-copy">
+          <p>유튜브의 타임스탬프 댓글을<br class="desktop-break"> 해당 장면 위에 띄웁니다.</p>
+          <a class="button button-accent" href="#preview"><span class="play-mark" aria-hidden="true"></span>미리 체험하기</a>
+        </div>
+      </div>
+
+      <section class="demo" id="preview" aria-label="댓글 표시 미리보기">
+        <div class="demo-toolbar">
+          <p class="demo-label"><span class="demo-indicator" aria-hidden="true"></span>댓글 미리보기</p>
+          <div class="mode-switch" role="group" aria-label="댓글 표시 방식">
+            <button type="button" data-demo-mode="scatter" aria-pressed="true">랜덤 위치</button>
+            <button type="button" data-demo-mode="chat" aria-pressed="false">고정 채팅창</button>
+          </div>
+        </div>
+
+        <div class="demo-screen" data-mode="scatter" data-playing="false">
+          <img class="demo-scene" src="assets/coast.webp" width="1600" height="900" alt="노을이 지는 해안과 바위섬" fetchpriority="high">
+          <div class="demo-scrim"></div>
+          <div class="comment-layer" aria-hidden="true">
+            <span class="sample-comment sample-static" style="--x: 17%; --y: 24%">여기서부터 분위기 바뀐다</span>
+            <span class="sample-comment sample-static" style="--x: 73%; --y: 49%">파도 소리 진짜 좋다</span>
+          </div>
+
+          <div class="demo-controls" aria-label="미리보기 재생 컨트롤">
+            <div class="scrub-row">
+              <svg class="density-graph" viewBox="0 0 720 30" preserveAspectRatio="none" role="img" aria-label="예시 댓글 분포">
+                <path class="density-area"></path>
+                <path class="density-line" vector-effect="non-scaling-stroke"></path>
+              </svg>
+              <input id="demo-progress" class="progress" type="range" min="0" max="18" step="0.01" value="1.65" aria-label="미리보기 재생 위치">
+            </div>
+            <div class="control-row">
+              <button type="button" class="play-button" aria-label="미리보기 재생"><span aria-hidden="true"></span></button>
+              <span class="timecode" aria-hidden="true"><span id="demo-time">0:01</span><span class="time-divider">/</span>0:18</span>
+              <span class="graph-key"><span aria-hidden="true"></span>댓글 분포</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="shell guide" aria-labelledby="guide-title">
+      <div class="guide-heading">
+        <h2 id="guide-title">나만의 시청 방식</h2>
+      </div>
+      <dl class="feature-list">
+        <div class="feature" data-reveal>
+          <dt>두 가지 표시 방식</dt>
+          <dd>영상 곳곳에 흩뿌리거나 원하는 모서리에 채팅처럼 쌓을 수 있어요.</dd>
+        </div>
+        <div class="feature" data-reveal>
+          <dt>내 속도에 맞는 댓글</dt>
+          <dd>동시 표시 개수, 표시 시간과 딜레이, 글자 크기와 불투명도를 조절하세요.</dd>
+        </div>
+        <div class="feature" data-reveal>
+          <dt>댓글이 몰린 구간</dt>
+          <dd>재생바 위 분포 그래프에서 반응이 많았던 장면을 찾을 수 있어요.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="shell" id="install" aria-labelledby="install-title">
+      <div class="install-panel">
+        <div class="install-intro">
+          <h2 id="install-title">Chrome에서 시작하기</h2>
+          <p>Chrome 120 이상에서 사용할 수 있어요.</p>
+          <a class="button button-accent" href="assets/youtube-cloud.zip" download>확장 프로그램 다운로드</a>
+        </div>
+        <ol class="install-steps">
+          <li>다운로드한 ZIP 파일을 압축 해제합니다.</li>
+          <li>Chrome 주소창에 <code>chrome://extensions</code>를 입력하고 <strong>개발자 모드</strong>를 켭니다.</li>
+          <li><strong>압축해제된 확장 프로그램을 로드합니다</strong>를 누르고 압축을 푼 폴더를 선택합니다.</li>
+          <li>이미 열려 있는 유튜브 탭은 새로고침합니다.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell site-footer">
+    <span>YouTube Cloud</span>
+    <a href="#top">맨 위로</a>
+  </footer>
+</body>
+</html>

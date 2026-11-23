@@ -1,0 +1,29 @@
+:root {
+  color-scheme: dark;
+  --paper: #141416;
+  --panel: #1b1b1e;
+  --panel-strong: #212124;
+  --stage: #17212a;
+  --ink: #f5f3f3;
+  --muted: #bab5b7;
+  --quiet: #a49ea2;
+  --line: #343239;
+  --line-strong: #4d4850;
+  --accent: #ff626e;
+  --accent-hover: #ff8b93;
+  --accent-ink: #20080e;
+  --white: #fff;
+  --picture-ink: #fdfafa;
+  --picture-shadow: rgb(7 8 10 / 86%);
+  --picture-shade: rgb(9 11 16 / 85%);
+  --picture-mid: rgb(9 11 16 / 34%);
+  --chat-bg: rgb(14 15 19 / 87%);
+  --video-line: rgb(255 255 255 / 35%);
+  --cover-outline: rgb(255 255 255 / 16%);
+  --density-fill: rgb(255 98 110 / 24%);
+  --density-stroke: #ff99a1;
+  --font: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+  --font-brand: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --ease: cubic-bezier(.2, .7, .3, 1);
+}
