@@ -388,6 +388,31 @@ button, a, input[type="range"] { -webkit-tap-highlight-color: transparent; }
 
 .site-footer a { min-height: 44px; display: inline-grid; place-items: center; }
 .site-footer a:hover { color: var(--ink); }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 20px; }
+
+.policy {
+  max-width: 720px;
+  margin-inline: auto;
+  padding-block: clamp(40px, 6vw, 72px) 16px;
+}
+
+.policy h1 {
+  margin-bottom: 14px;
+  font-size: clamp(2rem, 5.6vw, 3.6rem);
+  line-height: 1.14;
+  letter-spacing: -.055em;
+}
+
+.policy-date { color: var(--quiet); }
+.policy-intro { margin-top: 18px; }
+.policy section { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
+.policy h2 { margin-bottom: 10px; font-size: 1.25rem; }
+.policy section p, .policy li { color: var(--muted); }
+.policy section p + p, .policy li + li { margin-top: 8px; }
+.policy ul { margin: 0; padding-inline-start: 22px; }
+.policy strong, .policy code { color: var(--ink); }
+.policy a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.policy a:hover { color: var(--accent-hover); }
 
 @media (max-width: 820px) {
   .shell { width: calc(100% - 48px); }
