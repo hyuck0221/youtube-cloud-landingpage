@@ -18,7 +18,11 @@
         <img src="assets/cloud.png" width="34" height="34" alt="">
         <span>YouTube Cloud</span>
       </a>
-      <a class="button button-outline" href="#install">설치 방법</a>
+      <a class="download-link" href="assets/youtube-cloud.zip" download aria-label="확장 프로그램 다운로드">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M12 3v11m-4-4 4 4 4-4M5 15v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"/>
+        </svg>
+      </a>
     </div>
   </header>
 
@@ -26,15 +30,11 @@
     <section class="shell hero" aria-labelledby="headline">
       <div class="intro">
         <h1 id="headline">그 장면에,<br>댓글이 뜬다<span>.</span></h1>
-        <div class="intro-copy">
-          <p>유튜브의 타임스탬프 댓글을<br class="desktop-break"> 해당 장면 위에 띄웁니다.</p>
-          <a class="button button-accent" href="#preview"><span class="play-mark" aria-hidden="true"></span>미리 체험하기</a>
-        </div>
       </div>
 
-      <section class="demo" id="preview" aria-label="댓글 표시 미리보기">
+      <section class="demo" id="preview" aria-labelledby="preview-title">
         <div class="demo-toolbar">
-          <p class="demo-label"><span class="demo-indicator" aria-hidden="true"></span>댓글 미리보기</p>
+          <h2 class="demo-label" id="preview-title">미리보기</h2>
           <div class="mode-switch" role="group" aria-label="댓글 표시 방식">
             <button type="button" data-demo-mode="scatter" aria-pressed="true">랜덤 위치</button>
             <button type="button" data-demo-mode="chat" aria-pressed="false">고정 채팅창</button>

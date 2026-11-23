@@ -133,11 +133,6 @@
     updateClock();
   });
 
-  document.querySelector('a[href="#preview"]').addEventListener('click', () => {
-    playing = true;
-    updateClock();
-  });
-
   progress.addEventListener('pointerdown', () => {
     scrubbing = true;
     updateClock();
