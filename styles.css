@@ -343,12 +343,6 @@ button, a, input[type="range"] { -webkit-tap-highlight-color: transparent; }
 .install-steps li + li { margin-top: 9px; }
 .install-steps li::marker { color: var(--accent); font-weight: 800; }
 .install-steps strong { color: var(--ink); }
-.install-steps code {
-  color: var(--ink);
-  font: .9em var(--font-mono);
-  white-space: nowrap;
-}
-
 .site-footer {
   display: flex;
   justify-content: space-between;
