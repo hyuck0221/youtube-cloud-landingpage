@@ -23,7 +23,7 @@
   <main class="shell">
     <article class="policy">
       <h1>개인정보처리방침</h1>
-      <p class="policy-date">시행일 <time datetime="2026-11-23">2026년 11월 23일</time></p>
+      <p class="policy-date">최종 수정일 <time datetime="2026-11-25">2026년 11월 25일</time></p>
       <p class="policy-intro">이 방침은 YouTube Cloud Chrome 확장 프로그램과 소개 페이지에 적용됩니다. 확장 프로그램은 시청 중인 유튜브 영상의 타임스탬프 댓글을 해당 장면 위에 띄우고 재생바에 댓글 분포를 표시합니다.</p>
 
       <section aria-labelledby="data">
@@ -31,21 +31,29 @@
         <ul>
           <li><strong>시청 중인 영상.</strong> 현재 유튜브 영상 주소, 영상 ID와 재생 시점을 사용해 해당 영상의 댓글을 가져오고 표시 시점을 맞춥니다.</li>
           <li><strong>공개 댓글.</strong> 댓글 본문에서 타임스탬프를 찾고 댓글 ID로 중복을 제거합니다. 작성자 표시 이름은 사용자가 이름 표시를 켰을 때 영상 위에 함께 표시합니다.</li>
-          <li><strong>표시 설정.</strong> 기능 사용 여부, 표시 방식, 위치, 개수, 시간, 지연 시간, 글자 크기, 불투명도, 작성자 이름 표시 설정을 Chrome에 저장해 다음 사용 때 적용합니다.</li>
+          <li><strong>표시 설정.</strong> 기능 사용 여부, 표시 방식, 위치, 개수, 시간, 지연 시간, 글자 크기, 불투명도, 작성자 이름과 댓글 분포 그래프 설정을 Chrome에 저장해 다음 사용 때 적용합니다.</li>
         </ul>
       </section>
 
       <section aria-labelledby="sharing">
         <h2 id="sharing">유튜브 요청과 정보 공유</h2>
-        <p>댓글을 불러오는 HTTPS 요청은 <code>www.youtube.com</code>으로 직접 전송됩니다. 요청에는 대상 영상 ID 또는 댓글 페이지 토큰과 유튜브 페이지가 제공한 클라이언트 정보가 포함되며, 방문자 식별자가 제공되면 함께 사용합니다. 요청은 유튜브와 같은 사이트에서 이루어지므로 브라우저가 기존 유튜브 쿠키를 요청에 포함할 수 있습니다.</p>
-        <p>확장 프로그램은 가져온 댓글, 작성자 이름, 시청 정보 또는 설정을 개발자 서버에 전송하지 않으며, 이러한 정보를 판매하거나 광고 및 신용평가 목적으로 사용하지 않습니다. 유튜브가 처리하는 데이터에는 <a href="https://policies.google.com/privacy?hl=ko">Google 개인정보처리방침</a>이 적용됩니다.</p>
-        <p>유튜브에서 받은 정보는 댓글 표시와 댓글 분포 제공에만 사용하며, <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Chrome 웹 스토어 사용자 데이터 정책의 제한적 사용 요건</a>을 따릅니다.</p>
+        <p>기본 수집 방식에서는 댓글을 불러오는 HTTPS 요청을 <code>www.youtube.com</code>으로 직접 보냅니다. 요청에는 대상 영상 ID 또는 댓글 페이지 토큰과 유튜브 페이지가 제공한 클라이언트 정보가 포함되며, 방문자 식별자가 제공되면 함께 사용합니다. 브라우저가 기존 유튜브 쿠키를 이 요청에 포함할 수 있습니다.</p>
+        <p>API 키, 댓글, 작성자 이름, 시청 정보와 설정은 개발자 서버에 전송하지 않으며, 이러한 정보를 판매하거나 광고 및 신용평가 목적으로 사용하지 않습니다. Google 및 YouTube가 처리하는 정보에는 <a href="https://policies.google.com/privacy?hl=ko">Google 개인정보처리방침</a>이 적용됩니다.</p>
+        <p>유튜브에서 받은 정보는 댓글 표시, 댓글 분포와 수집 진행률을 제공하는 데 사용합니다. 정보 처리는 <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Chrome 웹 스토어 사용자 데이터 정책의 제한적 사용 요건</a>을 따릅니다.</p>
+      </section>
+
+      <section aria-labelledby="youtube-api">
+        <h2 id="youtube-api">YouTube Data API 사용</h2>
+        <p>YouTube Cloud는 고급설정에서 사용자가 선택할 수 있는 댓글 수집 방식으로 YouTube Data API를 사용합니다. API 모드를 켜면 공개 댓글과 답글, 작성자 표시 이름, 영상의 댓글 수를 조회합니다. 이를 위해 입력한 API 키를 HTTPS 요청 헤더에 담아 <code>www.googleapis.com</code>으로 직접 보내며, 조회에 필요한 영상 ID, 상위 댓글 ID 또는 페이지 토큰을 함께 보냅니다. 연결 테스트를 누르면 입력한 키와 테스트용 공개 영상 ID를 Google에 보냅니다.</p>
+        <p>API 요청에는 유튜브 로그인 쿠키가 포함되지 않으며 Google 계정 로그인이나 OAuth 권한을 요청하지 않습니다. API 기능 이용에는 <a href="https://www.youtube.com/t/terms">YouTube 서비스 약관</a>이 적용됩니다.</p>
+        <p>저장한 API 키와 API 사용 여부는 현재 Chrome 프로필의 확장 프로그램 로컬 저장소에 보관합니다. 쿼터를 표시하기 위해 같은 저장소에 키의 해시값, 이 브라우저에서 보낸 일일 요청 수, 쿼터 소진 여부를 저장합니다. 이 사용량은 미국 태평양 시간 기준으로 날짜가 바뀌면 새로 계산합니다.</p>
       </section>
 
       <section aria-labelledby="retention">
         <h2 id="retention">보관과 삭제</h2>
         <p>영상과 댓글 데이터는 재생 탭의 메모리에서 처리하며, 영상이 바뀌거나 탭을 닫으면 기존 데이터가 지워집니다. 방문한 페이지 목록은 저장하지 않습니다. 표시 설정은 Chrome 로컬 저장소에 보관되며 팝업에서 바꿀 수 있습니다. 확장 프로그램을 삭제하면 로컬 설정도 삭제됩니다.</p>
         <p>팝업에서 댓글 표시를 끄면 새 댓글 요청과 표시가 중단됩니다.</p>
+        <p>고급설정에서 YouTube Data API를 끄면 기본 수집으로 돌아가며 저장된 키는 남습니다. 키를 지우려면 API를 끈 뒤 입력란을 비우고 <strong>키 저장</strong>을 누르세요. 확장 프로그램을 삭제하면 저장된 키와 로컬 쿼터 기록도 삭제됩니다.</p>
       </section>
 
       <section aria-labelledby="website">
@@ -55,7 +63,7 @@
 
       <section aria-labelledby="contact">
         <h2 id="contact">문의와 변경 안내</h2>
-        <p>개인정보 처리에 관한 문의는 <a href="https://github.com/hyuck0221/youtube-cloud-landingpage/issues">프로젝트 문의 페이지</a>에 남길 수 있습니다. 문의 글은 공개되므로 개인정보는 적지 말아 주세요. 처리방침이 바뀌면 이 페이지의 내용과 시행일을 갱신합니다.</p>
+        <p>개인정보 처리에 관한 문의는 <a href="https://github.com/hyuck0221/youtube-cloud-landingpage/issues">프로젝트 문의 페이지</a>에 남길 수 있습니다. 문의 글은 공개되므로 개인정보나 API 키는 적지 말아 주세요. 처리방침이 바뀌면 이 페이지의 내용과 최종 수정일을 갱신합니다.</p>
       </section>
     </article>
   </main>
